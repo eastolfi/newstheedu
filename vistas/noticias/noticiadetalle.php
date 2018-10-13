@@ -20,6 +20,7 @@
     <!-- INCLUDES HEADER -->
 		
     <title>TIME TRAVEL. Todas las novedades en libros y películas sobre viajes en el tiempo</title>
+</head>
           
     <body cz-shortcut-listen="true">
         <!-- HEADER -->		

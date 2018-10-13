@@ -8,7 +8,8 @@
     <!-- INCLUDES -->		
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/vistas/includes.php'); ?> 
 				
-    <title>TIME TRAVEL. Administración de RSS</title>	
+    <title>TIME TRAVEL. Administración de RSS</title>
+</head>
     
     <body cz-shortcut-listen="true">
         <!-- HEADER -->         	

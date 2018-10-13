@@ -8,7 +8,8 @@
     <!-- INCLUDES -->		
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/vistas/includes.php'); ?> 
 				
-    <title>TIME TRAVEL. Registro</title>	
+    <title>TIME TRAVEL. Registro</title>
+</head>
     
     <body cz-shortcut-listen="true">
         <!-- HEADER -->         	

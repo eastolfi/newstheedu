@@ -9,7 +9,9 @@
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/vistas/includes.php'); ?> 
 <!--    <script type="text/javascript" src="<?= __URL__ . '/script/cookies.js'; ?> "></script>-->
     
-    <title>TIME TRAVEL. Login</title>	
+    <title>TIME TRAVEL. Login</title>
+</head>
+
     <body cz-shortcut-listen="true">
         <!-- HEADER -->         	
         <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/vistas/cabecera.php'); ?> 

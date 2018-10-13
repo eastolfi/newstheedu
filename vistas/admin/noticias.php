@@ -13,7 +13,8 @@
         } );
     </script>
     
-    <title>TIME TRAVEL. Administración de noticias</title>	
+    <title>TIME TRAVEL. Administración de noticias</title>
+</head>
     
     <body cz-shortcut-listen="true">
         <!-- HEADER -->         	

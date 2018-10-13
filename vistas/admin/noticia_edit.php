@@ -85,6 +85,7 @@
             }
        }
   </script>
+</head>
     
     <body cz-shortcut-listen="true" onload="ponerImagen()">
         <!-- HEADER -->         	

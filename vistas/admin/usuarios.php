@@ -13,7 +13,8 @@
         });                            
     </script>
 				
-    <title>TIME TRAVEL. Administración de usuarios</title>	
+    <title>TIME TRAVEL. Administración de usuarios</title>
+</head>
     
     <body cz-shortcut-listen="true">
         <!-- HEADER -->         	

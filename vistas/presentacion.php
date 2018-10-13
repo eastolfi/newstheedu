@@ -24,6 +24,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" prefix="og: http://ogp.me/ns#">
 <head>
+    <title>TIME TRAVEL. Blog de novedades en libros y peliculas sobre viajes en el tiempo</title>
+    <meta name="description" content="TIME TRAVEL. Blog de novedades en libros y peliculas sobre viajes en el tiempo" />
+  
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,8 +48,7 @@
             });
         }); 
     </script>
-	
-    <title>TIME TRAVEL. Blog de novedades en libros y peliculas sobre viajes en el tiempo </title>	
+</head>
 	<body cz-shortcut-listen="true">
             <!-- HEADER -->		
             <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/vistas/cabecera.php'); ?> 

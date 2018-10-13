@@ -67,7 +67,7 @@
                     <?php
                         $paramCategoria = "&cat=" . $cat;                                               
                     ?>
-                    <p align="right">
+                    <p align="right" class="tipo-vista-noticias">
                         <a href="<?= __URL__ . '/index.php/noticias?vw=0' . $paramCategoria ?> ">                        
                           <img src="<?= __URL__ . '/imagenes/default.png' ?> " alt="Vista de noticias por defecto" title="Vista de noticias por defecto">
                         </a>

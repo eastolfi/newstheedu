@@ -926,3 +926,9 @@ only screen and (max-device-width : 940px){
  .galleryItem h3 {font-size: 0.7em;}
  .puntua_th { font-size: 100%;}
 }
+
+/** EDU **/
+.tipo-vista-noticias a {
+    text-decoration: none;
+    color: white;
+}

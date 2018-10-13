@@ -21,7 +21,7 @@
             else $litTotalVotos = "(" . $totalVotos . " votos)";
         ?>
         <img src="<?= __URL__ . $imagen; ?>" alt="<?= $descripcion ?>" title="<?= $descripcion ?>">
-        <?= $titulo ?>
+        <a style="color: white;" href="<?= '/index.php/noticia?id=' . $noticia['IdNoticia'] ?>" title="Ampliar informacion de <?= $noticia['Titulo'] ?>"><?= $titulo ?></a>
     </h1>
     <p style="min-height:115px;">
         <img hspace="5" width="75" height="112" vspace="5" align="left" src="<?= __URL__ . $noticia['ImagenUrl']; ?> " alt="<?= $noticia['Titulo'] ?>" title="<?= $noticia['Titulo'] ?>">

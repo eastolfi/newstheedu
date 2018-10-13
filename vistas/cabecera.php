@@ -14,7 +14,7 @@
 
 <header id="top" >
    <nav class="navbar navbar-expand-xl navbar-dark fixed-top bg-dark"> <!-- style="top:20px;" -->
-        <a class="navbar-brand" href="#" title="">
+        <a class="navbar-brand" href="/vistas/presentacion.php" title="">
             <img class="d-inline-block align-top img-fluid" alt="TheEdu New" src="<?= __URL__ . '/imagenes/logo.png'; ?> "> 
         </a>
 

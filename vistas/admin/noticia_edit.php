@@ -167,13 +167,13 @@
                                 <div id="divLibro" style="display: none;">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                            <input id="autor" type="text" class="form-control" name="autor" placeholder="Autor" value="<?= $noticia_detalle[0]['MetaAutor'] ?>" required> 
+                                            <input id="autor" type="text" class="form-control" name="autor" placeholder="Autor" value="<?= $noticia_detalle[0]['MetaAutor'] ?>"> 
                                         </div>
                                         <br/>
 
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-edit"></i></span>
-                                            <input id="editorial" type="text" class="form-control" name="editorial" placeholder="Editorial" value="<?= $noticia_detalle[0]['MetaEditorial'] ?>" required> 
+                                            <input id="editorial" type="text" class="form-control" name="editorial" placeholder="Editorial" value="<?= $noticia_detalle[0]['MetaEditorial'] ?>"> 
                                         </div>
                                         <br/>
                                 </div>
@@ -197,11 +197,9 @@
                                     <textarea style="margin-left: 10px;font-size: 1.3em;" placeholder="Resumen" id="resumen" name="resumen" cols="100" rows="8" maxlength="65525" required="required"><?= $noticia_detalle[0]['Resumen'] ?></textarea>
                                 </div>
                                 <br/>
-
                                 
-                                    <span class="input-group-addon"><i class="fa fa-photo"></i></span>
-<!--                                    <input id="imagen" type="text" class="form-control" name="imagen" placeholder="Imagen" required>                                      -->
-                                    <input id="file-2" data-keyboard="false" placeholder="Imagen..." data-show-upload="false" data-show-remove="false" data-show-close="false" type="file" class="file">
+                                <span class="input-group-addon"><i class="fa fa-photo"></i></span>
+                                <input id="file-2" data-keyboard="false" placeholder="Imagen..." data-show-upload="false" data-show-remove="false" data-show-close="false" type="file" class="file">
                                 
                                 <br/>
                                 

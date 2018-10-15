@@ -5,7 +5,7 @@
 * @param void
 * @return array[] Array que contiene todas las noticias cargadas
 */	
-function get_noticias($categoria)
+function get_noticias($categoria, $aprobado)
 {
     //Obtengo la conexión a la base de datos de MySQL    
     $link = conectar_bd();
@@ -14,11 +14,14 @@ function get_noticias($categoria)
     $query = "SELECT IdNoticia, IdCategoria, Titulo, TituloOriginal, Ano, SUBSTRING(Resumen, 1, 250) AS Resumen, ImagenUrl, ";
     $query .= "MetaAutor, MetaEditorial, MetaDirector, MetaProtagonistas, Valoracion, Visitas, FechaAlta, ";
     $query .= "FechaCaducidad, FechaRevision, Aprobado FROM noticias";
-    
+        
     if($categoria > 0) 
     {
         $query .= " WHERE idcategoria = " . $categoria;
-    }
+        if($aprobado == 1) 
+            $query .= " AND Aprobado = 1";
+    } elseif($aprobado == 1) 
+        $query .= " WHERE Aprobado = 1";
     
     $query .= " ORDER BY FechaAlta;";
     
@@ -84,7 +87,7 @@ function get_total_noticias($categoria)
 {
     $link = conectar_bd();
     
-    $query = "SELECT COUNT(idCategoria) As total FROM `noticias` WHERE idCategoria = " . $categoria;
+    $query = "SELECT COUNT(idCategoria) As total FROM `noticias` WHERE idCategoria = " . $categoria . " AND Aprobado = 1";
     
     $resultados = mysqli_query($link, $query);	
     
@@ -107,7 +110,7 @@ function get_mas_visitadas_noticias()
 {
     $link = conectar_bd();
     
-    $query = "SELECT * FROM `noticias` ORDER BY Visitas DESC LIMIT 5;";
+    $query = "SELECT * FROM `noticias` WHERE Aprobado = 1 ORDER BY Visitas DESC LIMIT 5;";
     
     $noticias_mas_visitadas = array();
     $resultados = mysqli_query($link, $query);	
@@ -138,7 +141,7 @@ function get_mas_votadas_noticias()
     
     //Guardo cada noticia en un elemento del array    
     while($idsNoticias = mysqli_fetch_assoc($resultados)) {
-        $subQuery = "SELECT * FROM `noticias` WHERE idNoticia = " . $idsNoticias["idNoticia"];
+        $subQuery = "SELECT * FROM `noticias` WHERE idNoticia = " . $idsNoticias["idNoticia"]  . " AND Aprobado = 1";
         $subResultados = mysqli_query($link, $subQuery);
         
         while($noticias = mysqli_fetch_assoc($subResultados)) {
@@ -161,13 +164,11 @@ function get_archivo_noticias($mes, $ano)
 {
     $link = conectar_bd();
     
-    //$query = "SELECT COUNT(idCategoria) As total FROM `noticias` WHERE idCategoria = " . $categoria;
-    //$query = "SELECT YEAR(FechaAlta) As Ano, MONTH(FechaAlta) As Mes FROM noticias ORDER BY Ano, Mes";    
-    $query = "SELECT IdNoticia, IdCategoria, Titulo FROM noticias WHERE YEAR(FechaAlta) = " . $ano . " AND MONTH(FechaAlta) = " . $mes . ";";
+    $query = "SELECT IdNoticia, IdCategoria, Titulo FROM noticias WHERE YEAR(FechaAlta) = " . $ano . " AND MONTH(FechaAlta) = " . $mes . " AND Aprobado = 1;";
     $resultados = mysqli_query($link, $query);	    
     $archivo_noticias = array();
 	
-    //Guardo cada libro en un elemento del array    
+    //Guardo cada nnoticia en un elemento del array    
     while($noticia = mysqli_fetch_assoc($resultados)) {
         $archivo_noticias[] = $noticia;
     }
@@ -206,11 +207,10 @@ function get_total_votos($idNoticia)
 * @param int Categoria para obtener el total
 * @return int que contiene el total de las noticias de la categoria del parametro
 */
-function set_incremento_visitas($idNoticia)
+function set_incremento_visitas($idNoticia, $ip)
 {
     $link = conectar_bd();
-    
-    //$query = "SELECT COUNT(*) As total FROM `comentarios` WHERE idNoticia = " . $idNoticia;
+        
     $query = "SELECT Visitas + 1 As Visitas FROM noticias WHERE IdNoticia = " . $idNoticia;       
     $resultados = mysqli_query($link, $query);	
     
@@ -236,7 +236,7 @@ function get_total_noticias_mes_ano($mes, $ano)
 {
     $link = conectar_bd();
     
-    $query = "SELECT COUNT(*) As total FROM `noticias` WHERE YEAR(FechaAlta) = " . $ano . " AND MONTH(FechaAlta)= " . $mes;
+    $query = "SELECT COUNT(*) As total FROM `noticias` WHERE YEAR(FechaAlta) = " . $ano . " AND MONTH(FechaAlta)= " . $mes  . " AND Aprobado = 1";
     
     $resultados = mysqli_query($link, $query);	
     
@@ -292,6 +292,4 @@ function set_edit_noticia($noticia_detalle, $actualizacion)
     
     desconectar_bd($link);
 }
-
-
 ?>

@@ -15,7 +15,7 @@
     */
     function controlador_noticias($vw, $cat)
     {
-        $datos['noticias'] = get_noticias($cat);
+        $datos['noticias'] = get_noticias($cat, 1);
         $errorBoletin = "";
                        
         if(isset($_POST['boletin']))
@@ -29,7 +29,6 @@
             if(existe_email_subcripcion($email))
                 $errorBoletin = "El correo ya existe en la BD.";
             else {
-                //OBTENER LOS CHECK BOX ========================================
                 if(isset($_POST['chkSubsLibros']))                
                     $subLibros = 1;
                 
@@ -37,6 +36,11 @@
                     $subPelis = 1;
                 
                 subscribir_usuario($email, $subLibros, $subPelis);
+                
+                //Enviar un correo de bienvenida                
+                require ($_SERVER['DOCUMENT_ROOT'] . '/clases/correo/class.correos.php');
+                $envio = new envioCorreo();
+                $envioOk = $envio->envio_correos_bienvenida_boletin($email);
             }
         } 
         
@@ -62,12 +66,42 @@
             $idUsuario=$_POST["comment_idusuario"]; 
             
             set_opinion($idNoticia, $idUsuario, $valoracion, $comentario);            
+        } elseif(isset($_POST['resp_idOpinion'])){
+            $idUsuario=$_POST["resp_idusuario"];
+            $idOpinion = $_POST['resp_idOpinion'];
+            $respuesta=$_POST["areaResp" . $idOpinion];
+            
+             set_respuesta($idOpinion, $idUsuario, $respuesta);
         } else {
-            set_incremento_visitas($idNoticia);
+            set_incremento_visitas($idNoticia, get_cliente_ip());
         }
             
         $noticia = get_noticia_detalle($idNoticia);
         
         require ($_SERVER['DOCUMENT_ROOT'] . '/vistas/noticias/noticiadetalle.php');
+    }
+    
+    /**
+    *
+    * Obtiene la IP real del cliente
+    *
+    */
+    function get_cliente_ip() {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+           $ipaddress = getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
     }
 ?>

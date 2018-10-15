@@ -57,8 +57,9 @@ function get_rol($usuario)
 {
 	//Obtengo la conexión a la base de datos de MySQL    
     $link = conectar_bd();
+    
     $sql = "SELECT Rol FROM `usuarios` WHERE Usuario LIKE '" . $usuario . "'";
-	
+    
     $resultados = mysqli_query($link, $sql);	
     $rol = mysqli_fetch_assoc($resultados);
 	
@@ -177,5 +178,33 @@ function get_usuario_detalle($idUsuario) {
 	
 	//Retorno el array con los autores
     return $usuario_detalle;
+}
+
+
+/**
+* Obtiene los totales de las noticias por categoria
+*
+* @param int Categoria para obtener el total
+* @return int que contiene el total de las noticias de la categoria del parametro
+*/
+function set_edit_usuario($user_detalle)
+{
+    $link = conectar_bd();
+    
+    $rol = $user_detalle['Rol'];
+    $activo = $user_detalle['Activo'];
+    
+    if($activo == "true")
+        $chkActivo = 1;
+    else
+        $chkActivo = 0;
+   
+    $idUsuario = $user_detalle['idUsuario'];
+    
+    $query = "UPDATE `usuarios` SET `Rol` = '" . $rol . "', `Activo` = b'" . $chkActivo . "' WHERE `usuarios`.`idUsuario` = " . $idUsuario . ";";
+    
+    mysqli_query($link, $query);
+    
+    desconectar_bd($link);
 }
 ?>

@@ -19,8 +19,6 @@
     require_once($_SERVER['DOCUMENT_ROOT'] . '/controlador/usuarios_controlador.php');	
     require_once($_SERVER['DOCUMENT_ROOT'] . '/controlador/admin_controlador.php');	
     
-    //https://newstheedu.000webhostapp.com
-    
     if($_SERVER['SERVER_NAME'] == "localhost") 
         define('__URL__', 'http://localhost:8081');
     elseif($_SERVER['SERVER_NAME'] == "news.theedu") 

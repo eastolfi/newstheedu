@@ -9,8 +9,6 @@ class envioCorreo {
     }
     
     /**
-    * Encripta la cadena recibida
-    *
     * @access public
     * @return string salida
     */
@@ -21,10 +19,8 @@ class envioCorreo {
            $destinatario=>$usuario
        );
        
-       # NOTA: Los correos es conveniente enviarlos en formato HTML y Texto para que
-       # cualquier programa de correo pueda leerlo.
-
-       # Definimos el contenido HTML del correo
+       //NOTA: Los correos es conveniente enviarlos en formato HTML y Texto para que cualquier programa de correo pueda leerlo.
+       //Defino el contenido HTML del correo
        $contenidoHTML="<head>";
        $contenidoHTML.="<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">";
        $contenidoHTML.="</head><body>";
@@ -32,23 +28,15 @@ class envioCorreo {
        $contenidoHTML.="<p><a href='" . __URL__ . "/index.php/valida?uname=" . $usuario . "'>The Edu News</a></p>";
        $contenidoHTML.="</body>\n";
 
-       # Definimos el contenido en formato Texto del correo
+       //Defino el contenido en formato Texto del correo
        $contenidoTexto="Bienvenido al ultimo paso de registro en TheEduNews. Utilice el siguiente enlace para validar su cuenta de correo  y activar el usuario.";
        $contenidoTexto.="\n\n" . __URL__ . "/index.php/valida?uname=" . $usuario;
 
-       # Definimos el subject
+       //Definio el subject
        $smtp->Subject="Validar registrio de usuario";
-
-       # Adjuntamos el archivo "leameLWP.txt" al correo.
-       # Obtenemos la ruta absoluta de donde se ejecuta este script para encontrar el
-       # archivo leameLWP.txt para adjuntar. Por ejemplo, si estamos ejecutando nuestro
-       # script en: /home/xve/test/sendMail.php, nos interesa obtener unicamente:
-       # /home/xve/test para posteriormente adjuntar el archivo leameLWP.txt, quedando
-       # /home/xve/test/leameLWP.txt
        $rutaAbsoluta=substr($_SERVER["SCRIPT_FILENAME"],0,strrpos($_SERVER["SCRIPT_FILENAME"],"/"));
-       //$smtp->AddAttachment($rutaAbsoluta."/leameLWP.txt", "LeameLWP.txt");
-
-       # Indicamos el contenido
+       
+       //Contenido
        $smtp->AltBody=$contenidoTexto; //Text Body
        $smtp->MsgHTML($contenidoHTML); //Text body HTML
 
@@ -68,8 +56,60 @@ class envioCorreo {
        }
     }
 
+    
+    /**
+    * @access public
+    * @return string salida
+    */
+    public function envio_correos_bienvenida_boletin($destinatario) {        
+       $smtp = $this->instancia_phpMailer();
+       $usuario = "";
+       
+       $mailTo=array(
+           $destinatario=>$usuario
+       );
+       
+       //Defino el contenido HTML del correo
+       $contenidoHTML="<head>";
+       $contenidoHTML.="<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">";
+       $contenidoHTML.="</head><body>";
+       $contenidoHTML.="<b>Estimado usuario: gracias por suscribirte a los boletines de TheEduNews.</b>";       
+       $contenidoHTML.="<p>Esperamos que disfrutes del contenido.<br />Un saludo,<br />The Edu News</p>";
+       $contenidoHTML.="</body>";
+
+       //Defino el contenido en formato Texto del correo
+       $contenidoTexto="Estimado usuario: gracias por suscribirte a los boletines de TheEduNews.";
+       $contenidoTexto.="\nEsperamos que disfrutes del contenido.\n\nUn saludo,\nThe Edu News";
+       
+       //Definio el subject
+       $smtp->Subject="Bienvenido a la lista de distribución de TheEduNews";
+       $rutaAbsoluta=substr($_SERVER["SCRIPT_FILENAME"],0,strrpos($_SERVER["SCRIPT_FILENAME"],"/"));
+       
+       //Contenido
+       $smtp->AltBody=$contenidoTexto; //Text Body
+       $smtp->MsgHTML($contenidoHTML); //Text body HTML
+
+       foreach($mailTo as $mail=>$name)
+       {
+           $smtp->ClearAllRecipients();
+           $smtp->AddAddress($mail,$name);
+
+           if(!$smtp->Send())
+           {
+               echo "<br>Error (".$mail."): ".$smtp->ErrorInfo;
+               return false;
+           }else{
+               return true;
+           }
+       }
+    }
+    
+    /**
+     * 
+     * @return \PHPMailer
+     */
     private function instancia_phpMailer() {
-        //Envio de correo mediante el servidor SMTP con phpMailer
+        //Envio de correo mediante el servidor SMTP de Google con phpMailer
         require ($_SERVER['DOCUMENT_ROOT'] . '/clases/correo/phpmailer.php');
      
         $smtp=new PHPMailer();

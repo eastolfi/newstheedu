@@ -7,24 +7,24 @@
     <language>es-es</language>
     <pubDate>Tue, 8 Dec 2018 12:00:00 GMT</pubDate>
     <lastBuildDate>Tue, 14 Mar 2018 12:14:00 GMT</lastBuildDate>    	
-	<item>
-      <title>La Viajera del Tiempo - Lorena Franco</title>
-      <link>http://news.theedu.es/index.php/noticia?id=5</link>
-	  <description>
-		<![CDATA[
-			<p style="text-align: left;" >
-				<img src="http://news.theedu.es/imagenes/noticias/lore2.jpg" alt="La Viajera del Tiempo" title="La Viajera del Tiempo" width="100" height="150">
-			</p>
-			
-			<p style="text-align: left;font-size: 12pt;">
-				Lorena Franco nos presenta su nuevo libro: 'Un viaje a través del tiempo': Sorprendente, una historia inolvidable que te atrapará de principio a fin.
-			</p>
-		]]>
-	  </description>	  
-      <pubDate>Thu, 11 Oct 2018 09:57:11 GMT</pubDate>
+    <item>
+        <title>La Viajera del Tiempo - Lorena Franco</title>
+        <link>http://news.theedu.es/index.php/noticia?id=5</link>
+        <description>
+              <![CDATA[
+                      <p style="text-align: left;" >
+                              <img src="http://news.theedu.es/imagenes/noticias/lore2.jpg" alt="La Viajera del Tiempo" title="La Viajera del Tiempo" width="100" height="150">
+                      </p>
+
+                      <p style="text-align: left;font-size: 12pt;">
+                              Lorena Franco nos presenta su nuevo libro: 'Un viaje a través del tiempo': Sorprendente, una historia inolvidable que te atrapará de principio a fin.
+                      </p>
+              ]]>
+        </description>	  
+        <pubDate>Thu, 11 Oct 2018 09:57:11 GMT</pubDate>
     </item>    
-	<item>
-      <title>Placer en París - Jina Bacarr</title>
+    <item>
+      <title>Placer en Par&#xED;s - Jina Bacarr</title>
       <link>http://news.theedu.es/index.php/noticia?id=4</link>
 	  <description>
 		<![CDATA[
@@ -39,5 +39,11 @@
 	  </description>	  
       <pubDate>Thu, 11 Oct 2018 09:57:11 GMT</pubDate>
     </item> 
-  </channel>
+   <item>
+       <title>Puerta al verano</title>
+       <link>http://news.theedu:8081/index.php/noticia?id=8</link>
+       <description>&lt;![CDATA[&lt;p style='text-align: left;'&gt;&lt;img src='http://news.theedu:8081/imagenes/noticias/puerta.jpg' alt='Puerta al verano' title='Puerta al verano' width='100' height='150'&gt;&lt;/p&gt;&lt;p style='text-align: left;font-size: 12pt;'&gt;Dan Davis, vive en un "futuro" 1970 con un exc&#xE9;ntrico gato aficionado al ginger ale llamado Petronius, que nunca abandona la esperanza, durante el invierno, de que alguna de las muchas puertas de la casa se abra al verano. Dan es un ingeniero que empieza a despuntar como inventor de robots para el trabajo dom&#xE9;stico, pero despu&#xE9;s de ser traicionado por su socio y su novia, acaba criogenizado durante 30 a&#xF1;os, &lt;/p&gt;</description>
+       <pubDate>Thu, 11 Oct 2018 09:57:11 GMT</pubDate>
+   </item>   
+  <item><title>Paradox</title><link>http://news.theedu:8081/index.php/noticia?id=2</link><description>&lt;![CDATA[&lt;p style='text-align: left;'&gt;&lt;img src='http://news.theedu:8081/imagenes/noticias/paradox.jpg' alt='Paradox' title='Paradox' width='100' height='150'&gt;&lt;/p&gt;&lt;p style='text-align: left;font-size: 12pt;'&gt;Un cient&#xED;fico, parte de un equipo que investiga los viajes en el tiempo, consigue adelantarse una hora y al volver, trae noticias impactantes.&lt;/p&gt;</description><pubDate>Mon, 15 Oct 2018 18:46:11 +0200</pubDate></item></channel>
 </rss>

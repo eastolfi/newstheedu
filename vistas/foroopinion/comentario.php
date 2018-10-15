@@ -22,8 +22,7 @@
                         
             <input type="hidden" name="comment_parent" id="comment_parent" value="<?= $noticia[0]['IdNoticia'] ?>">
             <input type="hidden" name="comment_valoracion" id="comment_valoracion" value="0">
-            <input type="hidden" name="comment_idusuario" id="comment_idusuario" value="<?= $idUsuario ?>">
-            
+            <input type="hidden" name="comment_idusuario" id="comment_idusuario" value="<?= $idUsuario ?>">            
         </p>
                 
     </form>
@@ -53,4 +52,4 @@
            errorStar.innerHTML = "";
        }
     </script>
-</div><!-- #respond -->
+</div>

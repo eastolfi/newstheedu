@@ -165,9 +165,7 @@
                     //Enviar un correo de validacion
                     require ($_SERVER['DOCUMENT_ROOT'] . '/clases/correo/class.correos.php');
                     $envio = new envioCorreo();
-                    $envioOk = $envio->envio_correos_registro($email, $userEnc);
-                    //$envioOk = enviarCorreo($email); 
-                
+                    $envioOk = $envio->envio_correos_registro($email, $userEnc);                                    
                     $usuario="";
                     $email="";
                     $contrasena="";

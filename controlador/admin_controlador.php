@@ -15,7 +15,19 @@
     */
     function valida_acceso_admin()
     {
-          
+        $estaLogin = false;
+        $esAdmin = false;
+    
+        if(!empty($_SESSION['sesion_rol'])) {
+            if($_SESSION['sesion_rol'] == "admin") 
+                $esAdmin = true;                
+        }       
+        
+        if(!$esAdmin) {
+            echo "<script>";
+            echo "window.location.replace('" . __URL__ . "/vistas/erroracceso.php" . "');";
+            echo "</script>";
+        }
     }
     
     /**
@@ -24,8 +36,7 @@
     *
     */
     function  controlador_admin_usuarios()
-    {
-        
+    {        
         $datos['usuarios'] = get_usuarios();
         
         require ($_SERVER['DOCUMENT_ROOT'] . '/vistas/admin/usuarios.php');
@@ -37,7 +48,7 @@
     *
     */
     function controlador_admin_usuario_edit($idUsuario)
-    {                
+    {                        
         if(isset($_POST['edit_usuario'])) {
             $user_detalle['Rol'] = $_POST["user_rol"];
             $user_detalle['Activo'] = $_POST["chkEstado"];
@@ -132,7 +143,7 @@
             if($idNoticia > 0) {
                 $noticia_detalle['IdNoticia'] = $idNoticia;
                 set_edit_noticia($noticia_detalle, 1); //1 UPDATE 
-                upddate_rss($noticia_detalle);
+                //upddate_rss($noticia_detalle);
             } else {                
                 set_edit_noticia($noticia_detalle, 0); //0 INSERT
                 
@@ -171,7 +182,9 @@
     *
     */
     function  controlador_admin_boletines()
-    {
+    {     
+        $datos['suscriptores'] = get_suscriptores();
+        
         require ($_SERVER['DOCUMENT_ROOT'] . '/vistas/admin/boletines.php');
     }
     

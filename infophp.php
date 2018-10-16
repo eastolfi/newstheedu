@@ -5,7 +5,7 @@
 	}
 	*/
 	
-	//phpinfo();
+	phpinfo();
 	
 //	$url = "http://rss.theedu.es/rss_theedunews.xml";
 //	$rss = simplexml_load_file($url);
@@ -60,15 +60,15 @@
 //    // Imprime algo como: Monday 8th of August 2005 03:12:46 PM
 //    echo date('l jS \of F Y h:i:s A');
 
-    $pubDate = new DateTime();
-    echo $pubDate->format(DateTime::RSS);
+    //$pubDate = new DateTime();
+    //echo $pubDate->format(DateTime::RSS);
     
-    $now = time();
-    $pubDate= date('r', $now);
+    //$now = time();
+    //$pubDate= date('r', $now);
 
     //echo "\n<pubDate>$pubDate</pubDate>";
     
     
-    $pubDate = date(DATE_RSS, strtotime($now));
+    //$pubDate = date(DATE_RSS, strtotime($now));
     //echo $pubDate;
 ?>

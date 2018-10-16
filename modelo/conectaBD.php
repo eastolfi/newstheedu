@@ -7,15 +7,15 @@
     function conectar_bd()
     {
         //Conexión con la base de datos;	
-        if($_SERVER['SERVER_NAME'] == "localhost" || $_SERVER['SERVER_NAME'] == "news.theedu")
-            $link = mysqli_connect('127.0.0.1', 'otro', 'otro', 'theedunews');	
-        elseif($_SERVER['SERVER_NAME'] == "news.theedu.es") {                    
-            $host_name = 'db729732652.db.1and1.com';
-            $database = 'db729732652';
-            $user_name = 'dbo729732652';
-            $password = 'tareaglobaldwes';
-            $link = mysqli_connect($host_name, $user_name, $password, $database);
-        }
+//        if($_SERVER['SERVER_NAME'] == "localhost" || $_SERVER['SERVER_NAME'] == "news.theedu")
+          $link = mysqli_connect('127.0.0.1', 'otro', 'otro', 'theedunews');	
+//        elseif($_SERVER['SERVER_NAME'] == "news.theedu.es") {                    
+//            $host_name = 'db729732652.db.1and1.com';
+//            $database = 'db729732652';
+//            $user_name = 'dbo729732652';
+//            $password = 'tareaglobaldwes';
+//            $link = mysqli_connect($host_name, $user_name, $password, $database);
+//        }
         
         /*
         $host_name = 'localhost';

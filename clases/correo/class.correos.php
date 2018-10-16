@@ -40,6 +40,10 @@ class envioCorreo {
        $smtp->AltBody=$contenidoTexto; //Text Body
        $smtp->MsgHTML($contenidoHTML); //Text body HTML
 
+        //Attachments
+        //$smtp->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        //$smtp->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
        foreach($mailTo as $mail=>$name)
        {
            $smtp->ClearAllRecipients();
@@ -109,31 +113,31 @@ class envioCorreo {
      * @return \PHPMailer
      */
     private function instancia_phpMailer() {
-        //Envio de correo mediante el servidor SMTP de Google con phpMailer
-        require ($_SERVER['DOCUMENT_ROOT'] . '/clases/correo/phpmailer.php');
+       //Envio de correo mediante el servidor SMTP de Google con phpMailer
+       require ($_SERVER['DOCUMENT_ROOT'] . '/clases/correo/phpmailer.php');
      
-        $smtp=new PHPMailer();
+       $smtp = new PHPMailer(true);
 
        # Indicamos que vamos a utilizar un servidor SMTP
        $smtp->IsSMTP();
-
+       
+       //Contenido por defecto
+       $smtp->isHTML(true); 
+        
        # Definimos el formato del correo con UTF-8
        $smtp->CharSet="UTF-8";
        
        # autenticación contra servidor smtp Google
-       $smtp->SMTPAuth   = true;		// enable SMTP authentication
+       $smtp->SMTPAuth   = true;	      // enable SMTP authentication
        $smtp->SMTPSecure = "tls";
-       $smtp->Host       = "smtp.gmail.com";	// sets MAIL as the SMTP server       
+       $smtp->Host       = "smtp.gmail.com"; //SMTP server       
        $smtp->Port       = 587;
-       $smtp->Username   = "theedunews@gmail.com";	// MAIL username
-       $smtp->Password   = "theedunews123";			// MAIL password 
+       $smtp->Username   = "theedunews@gmail.com";
+       $smtp->Password   = "theedunews123";	
        
        # datos de quien realiza el envio
        $smtp->From       = "theedunews@gmail.com"; // from mail
        $smtp->FromName   = "TheEdu News"; // from mail name
-       
-       # establecemos un limite de caracteres de anchura
-       $smtp->WordWrap   = 50; // set word wrap
        
        return $smtp;
     }

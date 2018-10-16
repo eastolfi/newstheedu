@@ -43,13 +43,17 @@
                             <a class="comment-reply-link" id="lnk<?= $opinion['idComentario'] ?>" href="javascript:expandResp('div<?= $opinion['idComentario'] ?>')" aria-label="Responder a <?= $opinion['Usuario'] ?>">Responder</a>
                             <div id="div<?= $opinion['idComentario'] ?>" style='display:none;'>
                                 <textarea id="areaResp<?= $opinion['idComentario'] ?>" name="areaResp<?= $opinion['idComentario'] ?>" cols="50" rows="4" maxlength="65525"></textarea>
+                                
                                 <br/>                            
                                 <input type="button" value="enviar" onclick="javascript:validarRespuesta('<?= $opinion['idComentario'] ?>')">
                                 <input type="button" value="cancelar" onclick="javascript:expandResp('div<?= $opinion['idComentario'] ?>')">                                  
+                                <!-- =========================================================================== -->
+<!--                                 <p class="comment-form-comment"><label for="comment">Nuevo Comentario</label> 
+                                    <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+                                </p>-->
+                                <!-- =========================================================================== -->
                             </div>
-                        </div>
-
-
+                        </div>                                               
                     </div>
 
                     <?php require($_SERVER['DOCUMENT_ROOT'] . '/vistas/foroopinion/respuestas.php'); ?>

@@ -101,22 +101,25 @@
                         <thead>
                             <tr>
                                 <th>Email</th>
+                                <th>Fecha alta</th>
+                                <th>Peliculas</th>
+                                <th>Libros</th>
                                 <th>Activo</th>                                                                
                             </tr> 
                         </thead>
                         
                         <?php 										                                
-//                            foreach($datos['usuarios'] as $usuario) 
-//                            {
-//                                echo "<tr>";
-//                                echo "<td align='center'>" . $usuario["Usuario"] . "</td><td align='center'>" . $usuario["Email"]. "</td><td align='center'>" . $usuario["Rol"] . "</td><td align='center'>" . $usuario["Activo"] . "</td>"; 
-//
-//                                echo "<td align='center'>";
-//                                echo "<a class='btn btn-primary' href='" . __URL__ . "/index.php/admin_usuario_edit?id=" . $usuario["idUsuario"] ."' target='_top'><i class='fa fa-edit'></i>&nbsp;Editar</a>";
-//                                echo "</td>";
-//
-//                                echo "</tr>";                                        
-//                            }
+                            foreach($datos['suscriptores'] as $suscriptor) 
+                            {
+                                echo "<tr>";
+                                echo "<td align='center'>" . $suscriptor["email"] . "</td><td align='center'>" . $suscriptor["fechaAlta"]. "</td><td align='center'>" . $suscriptor["okPelis"] . "</td><td align='center'>" . $suscriptor["okLibros"] . "</td><td align='center'>" . $suscriptor["activa"] . "</td>"; 
+
+                                echo "<td align='center'>";
+                                echo "<a class='btn btn-primary' href='" . __URL__ . "/index.php/admin_usuario_edit?id=" . $suscriptor["id"] ."' target='_top'><i class='fa fa-edit'></i>&nbsp;Editar</a>";
+                                echo "</td>";
+
+                                echo "</tr>";                                        
+                            }
                         ?>		
                     </table>                        
                     </div>

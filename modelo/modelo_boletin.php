@@ -49,5 +49,27 @@ function existe_email_subcripcion($email)
     else return true;	
 }
 
+function get_suscriptores()
+{
+    $link = conectar_bd();
+
+    //Solicito a SQL todos los suscriuptores
+    $sql = "SELECT * FROM boletin";
+    $resultados = mysqli_query($link, $sql);	
+
+    //Creo el array que guardara la informacion de los libros
+    $todos_suscriptores = array();
+	
+    //Guardo cada libro en un elemento del array    
+    while($suscriptor=mysqli_fetch_assoc($resultados)) {
+        $todos_suscriptores[] = $suscriptor;
+    }
+
+    //Desconectamos la BBDD
+    desconectar_bd($link);
+	
+	//Retorno el array con los libros
+    return $todos_suscriptores;	
+}
 ?>
 

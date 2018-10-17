@@ -42,8 +42,9 @@
                     //Inicio las variables de sesion -------------------
                     $rol=get_rol($usuario);
                     			
-                    //EN LOCALHOST FALLA
+                    //COMENTAR PARA LOCALHOST---------------------------
                     //session_start();
+                    //--------------------------------------------------
 					
                     $_SESSION['sesion_time'] = time();
                     $_SESSION['sesion_rol'] = $rol['Rol'];
@@ -102,8 +103,9 @@
             //Y obtener el rol para las variables de sesion                       
             $rol=get_rol($userDesc);
 
-            //EN LOCALHOST FALLA
+            //COMENTAR PARA LOCALHOST---------------------------
             //session_start();
+            //--------------------------------------------------
             
             $_SESSION['sesion_time'] = time();
             $_SESSION['sesion_rol'] = $rol['Rol'];
@@ -163,9 +165,7 @@
                     //Enviar un correo de validacion
                     require ($_SERVER['DOCUMENT_ROOT'] . '/clases/correo/class.correos.php');
                     $envio = new envioCorreo();
-                    $envioOk = $envio->envio_correos_registro($email, $userEnc);
-                    //$envioOk = enviarCorreo($email); 
-                
+                    $envioOk = $envio->envio_correos_registro($email, $userEnc);                                    
                     $usuario="";
                     $email="";
                     $contrasena="";

@@ -1,5 +1,7 @@
 <?php 
-    if($_SERVER['SERVER_NAME'] == "localhost") 
+    if($_SERVER['SERVER_NAME'] == "89ffe62f.ngrok.io") 
+        define('__URL__', 'http://89ffe62f.ngrok.io/');
+    elseif($_SERVER['SERVER_NAME'] == "localhost") 
         define('__URL__', 'http://localhost:8081');
     elseif($_SERVER['SERVER_NAME'] == "news.theedu") 
         define('__URL__', 'http://news.theedu:8081');
@@ -15,10 +17,11 @@
             $_SESSION['sesion_rol'] = $_COOKIE["cookie_rol"];
             $_SESSION['sesion_user'] = $_COOKIE["cookie_user"];
         }        
-    } else if($_SESSION['sesiom_time'] < time() - 180) {
-        session_start();
-        session_destroy();        
-    }
+    } 
+//    elseif($_SESSION['sesiom_time'] < time() - 180) {
+//        session_start();
+//        session_destroy();        
+//    }
 ?>
 
 <!DOCTYPE html>

@@ -42,22 +42,12 @@
                                 <th>Valoración</th>
                                 <th>Fec. alta</th>
                                 <th>Fec. caduca</th>
-                                <th>Aprobado</th>
-                                
-                                <!--
-                                <th>Tit. original</th>                                                                
-                                <th>Resumen</th>                                                                
-                                <th>Autor</th>
-                                <th>Editorial</th>
-                                <th>Director</th>
-                                <th>Protagonistas</th>
-                                -->
-                                
+                                <th>Aprobado</th>                                
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         
-                        <?php 	//IdCategoria	Titulo	TituloOriginal	Ano	Resumen	ImagenUrl	MetaAutor	MetaEditorial	MetaDirector	MetaProtagonistas	Valoracion	Visitas	FechaAlta	FechaCaducidad	FechaRevision	Aprobado									                                
+                        <?php 	
                                 foreach($datos['noticias'] as $noticia) 
                                 {
                                     echo "<tr>";

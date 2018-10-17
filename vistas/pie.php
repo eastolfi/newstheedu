@@ -8,7 +8,7 @@
                 <a href="https://es.linkedin.com/" target="_blank" title="Sígueme en Linkedin"><i class="fa fa-linkedin"></i></a> 
                 <a href="https://plus.google.com/u/0/103273296556858434558" target="_blank" title="Sígueme en Google" rel="publisher"><i class="fa fa-google-plus"></i></a> 
                 <a href="https://www.youtube.com/feed/subscriptions" target="_blank" title="Canal de YouTube"><i class="fa fa-youtube"></i></a> 
-                <a type="application/rss+xml" href="http://rss.theedu.es/rss_theedunews.xml" target="_blank" title="RSS TheEdu News"><i class="fa fa-rss"></i></a>                
+                <a type="application/rss+xml" href="<?= __URL__ . '/rss/rss_theedunews.xml'?>" target="_blank" title="RSS TheEdu News"><i class="fa fa-rss"></i></a>                
             </div>
         </div>
     </div>

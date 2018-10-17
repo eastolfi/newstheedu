@@ -2,14 +2,7 @@
     $meses = array('enero','febrero','marzo','abril','mayo','junio','julio', 'agosto','septiembre','octubre','noviembre','diciembre');
     $iniAno = 2015;
     $finAno = date("Y");
-    $paramVista = "&vw=" . $vw; 
-    
-//    if(empty($_SESSION['expand'])) {
-//        $estadoDiv = "style='display:none;'";  
-//        $_SESSION['expand'] = "none";
-//    } else {
-//        $estadoDiv = "";
-//    }
+    $paramVista = "&vw=" . $vw;    
 ?>
 
 <div class="widget">

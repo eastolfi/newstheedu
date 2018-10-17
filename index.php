@@ -10,6 +10,12 @@
 * @link http://news.theedu:8081/
 */
 
+
+    //VERSION EN LOCAL COMENTADO =============================================================
+    //session_star();
+    //$_SESSION['sesion_init'] = time();
+    //========================================================================================
+    
     require_once($_SERVER['DOCUMENT_ROOT'] . '/modelo/conectaBD.php');
     require_once($_SERVER['DOCUMENT_ROOT'] . '/modelo/modelo_noticias.php');
     require_once($_SERVER['DOCUMENT_ROOT'] . '/modelo/modelo_usuarios.php');
@@ -19,9 +25,9 @@
     require_once($_SERVER['DOCUMENT_ROOT'] . '/controlador/usuarios_controlador.php');	
     require_once($_SERVER['DOCUMENT_ROOT'] . '/controlador/admin_controlador.php');	
     
-    //https://newstheedu.000webhostapp.com
-    
-    if($_SERVER['SERVER_NAME'] == "localhost") 
+    if($_SERVER['SERVER_NAME'] == "89ffe62f.ngrok.io") 
+        define('__URL__', 'http://89ffe62f.ngrok.io/');
+    elseif($_SERVER['SERVER_NAME'] == "localhost") 
         define('__URL__', 'http://localhost:8081');
     elseif($_SERVER['SERVER_NAME'] == "news.theedu") 
         define('__URL__', 'http://news.theedu:8081');
@@ -41,10 +47,11 @@
             $_SESSION['sesion_rol'] = $_COOKIE["cookie_rol"];
             $_SESSION['sesion_user'] = $_COOKIE["cookie_user"];
         }        
-    } else if($_SESSION['sesiom_time'] < time() - 180) {
-        session_start();
-        session_destroy();        
-    }
+    } 
+//    else if($_SESSION['sesiom_time'] < time() - 180) {
+//        session_start();
+//        session_destroy();        
+//    }
     
     //Enrutamiento
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -84,23 +91,29 @@
             }
             break;
         case "admin_usuarios":
+            valida_acceso_admin();
             controlador_admin_usuarios();
             break;
         case "admin_usuario_edit":
+            valida_acceso_admin();
              if(isset($_GET['id']))                
                 controlador_admin_usuario_edit($_GET['id']);
             break;
        case "admin_noticias":
+           valida_acceso_admin();
             controlador_admin_noticias();
             break;
         case "admin_noticia_edit":
+            valida_acceso_admin();            
              if(isset($_GET['id']))                
                 controlador_admin_noticia_edit($_GET['id']);
             break;
         case "admin_rss":
+            valida_acceso_admin();
             controlador_admin_rss();
             break;
         case "admin_boletines":
+            valida_acceso_admin();
             controlador_admin_boletines();
             break;
     }	

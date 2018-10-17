@@ -9,7 +9,9 @@
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/vistas/includes.php'); ?> 
 <!--    <script type="text/javascript" src="<?= __URL__ . '/script/cookies.js'; ?> "></script>-->
     
-    <title>TIME TRAVEL. Login</title>	
+    <title>TIME TRAVEL. Login</title>
+</head>
+
     <body cz-shortcut-listen="true">
         <!-- HEADER -->         	
         <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/vistas/cabecera.php'); ?> 
@@ -18,7 +20,7 @@
         <main id="single" class="container" role="main">
             <div class="row">
                 <div class="col-md-12"><nav aria-label="breadcrumb" role="navigation"><ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= __URL__ . '/index.php'; ?>">Inicio</a></li>				
+                <li class="breadcrumb-item"><a href="/vistas/presentacion.php">Inicio</a></li>				
                 <li class="breadcrumb-item active" aria-current="page">Login</li></ol></nav></div>
             </div>
 

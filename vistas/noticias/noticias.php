@@ -12,14 +12,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" prefix="og: http://ogp.me/ns#">
 <head>
+    <title>TIME TRAVEL. Todas las novedades en libros y películas sobre viajes en el tiempo</title>
+    <meta name="description" content="TIME TRAVEL. Todas las novedades en libros y películas sobre viajes en el tiempo" />
+    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- INCLUDES -->		
     <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/vistas/includes.php'); ?> 
     <!-- INCLUDES HEADER -->
-		
-    <title>TIME TRAVEL. Todas las novedades en libros y películas sobre viajes en el tiempo</title>
+</head>
           
     <body cz-shortcut-listen="true">
         <!-- HEADER -->		
@@ -67,7 +69,7 @@
                     <?php
                         $paramCategoria = "&cat=" . $cat;                                               
                     ?>
-                    <p align="right">
+                    <p align="right" class="tipo-vista-noticias">
                         <a href="<?= __URL__ . '/index.php/noticias?vw=0' . $paramCategoria ?> ">                        
                           <img src="<?= __URL__ . '/imagenes/default.png' ?> " alt="Vista de noticias por defecto" title="Vista de noticias por defecto">
                         </a>

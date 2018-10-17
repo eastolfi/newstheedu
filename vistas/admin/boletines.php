@@ -51,7 +51,9 @@
         } );
     </script>
     
-    <title>TIME TRAVEL. Administración de boletines</title>	
+    <title>TIME TRAVEL. Administración de boletines</title>
+
+</head>
     
     <body cz-shortcut-listen="true">
         <!-- HEADER -->         	
